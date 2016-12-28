@@ -25,11 +25,11 @@ $(window).load(function() {
 
 /* Mixitup Portfolio */
 // jQuery(document).ready(function($) {
-//   "use strict";
-// 	$('#portfolio').mixitup({
-// 		targetSelector: '.item',
-// 		transitionSpeed: 450
-// 	});
+//     "use strict";
+//     $('#portfolio').mixitup({
+//         targetSelector: '.item',
+//         transitionSpeed: 450
+//     });
 // });
 
 /* Nivo - Lightbox */
@@ -39,16 +39,16 @@ $(window).load(function() {
 // });
 
 /* Skills */
-// jQuery(document).ready(function($) {
-// 	"use strict";
-// 	$('.skills-info').appear(function() {
-// 	$('.skill1').css('width', '71%');
-// 	$('.skill2').css('width', '85%');
-// 	$('.skill3').css('width', '76%');
-// 	$('.skill4').css('width', '53%');
-// 	$('.skill5').css('width', '69%');
-// 	},{accX: 0, accY: -150});
-// });
+jQuery(document).ready(function($) {
+	"use strict";
+	$('.skills-info').appear(function() {
+	$('.skill1').css('width', $('#skill1-percentage').text());
+	$('.skill2').css('width', $('#skill2-percentage').text());
+	$('.skill3').css('width', $('#skill3-percentage').text());
+	$('.skill4').css('width', $('#skill4-percentage').text());
+	$('.skill5').css('width', $('#skill5-percentage').text());
+	},{accX: 0, accY: -150});
+});
 
 /* Google map */
 $(function () {
