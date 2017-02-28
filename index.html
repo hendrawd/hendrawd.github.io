@@ -167,9 +167,12 @@
                                         console.log(response);
                                         var result = "";
                                         response.data.forEach(function (singleData) {
-                                            result += "<a href='" + singleData.download_url + "' ";
+                                            result += "<a href='" + singleData.download_url + "'";
                                             if (singleData.download_url.endsWith(".jpg") || singleData.download_url.endsWith(".jpeg") || singleData.download_url.endsWith(".png")) {
-                                                result += "data-lightbox='certificate-image'";
+                                                result += " data-lightbox='certificate-image'";
+                                            }
+                                            else {
+                                                result += " target='_blank'";
                                             }
                                             result += ">"
                                                 + removeExtension(singleData.name)
@@ -178,8 +181,7 @@
                                         });
 
                                         // Codility vanadium golden award
-                                        result += "<a href='https://codility.com/cert/view/cert3GMWAX-ZS299EB36JZZJY7W/' ";
-                                        result += ">"
+                                        result += "<a href='https://codility.com/cert/view/cert3GMWAX-ZS299EB36JZZJY7W/' target='_blank'>"
                                             + "Codility - Golden Award - Vanadium 2016"
                                             + "</a>"
                                             + "<br>";
