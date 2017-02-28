@@ -192,8 +192,21 @@
                                 <br>
                                 <div id="certificate-container"></div>
                                 <script type="text/javascript">
-                                    function removeExtension(input) {
-                                        return input.replace(/\.[^/.]+$/, "");
+                                    /**
+                                     * Remove last word after dot(.)/extension from a string
+                                     * @param stringThatContainsExtension
+                                     */
+                                    function removeExtension(stringThatContainsExtension) {
+                                        return stringThatContainsExtension.replace(/\.[^/.]+$/, "");
+                                    }
+
+                                    /**
+                                     * Entry point to retrieve certificate data
+                                     */
+                                    function retrieveCertificateData() {
+                                        var tag = document.createElement("script");
+                                        tag.src = 'https://api.github.com/repos/hendrawd/hendrawd.github.io/contents/assets/images/certificate?callback=getCertificateCallback';
+                                        document.getElementsByTagName("head")[0].appendChild(tag);
                                     }
 
                                     /**
@@ -201,43 +214,35 @@
                                      * @param response
                                      */
                                     function getCertificateCallback(response) {
-                                        console.log(response);
+                                        var result = getCertificateHtmlCodeFromGitHubFolder(response);
+                                        result += getCertificateHtmlCodeFromUrl("https://codility.com/cert/view/cert3GMWAX-ZS299EB36JZZJY7W/", "Codility - Golden Award - Vanadium 2016");
+                                        result += getCertificateHtmlCodeFromUrl("https://codility.com/cert/view/certRQV8UJ-C9UPCXF6CG73S5YK/", "Codility - Golden Award - Chromium 2017");
+
+                                        document.getElementById("certificate-container").innerHTML = result;
+                                    }
+
+                                    function getCertificateHtmlCodeFromUrl(url, name) {
+                                        return "<a href=" + url + " target='_blank'>" + name + "</a><br>";
+                                    }
+
+                                    function getCertificateHtmlCodeFromGitHubFolder(response) {
                                         var result = "";
-                                        response.data.forEach(function (singleData) {
-                                            result += "<a href='" + singleData.download_url + "'";
-                                            if (singleData.download_url.endsWith(".jpg") || singleData.download_url.endsWith(".jpeg") || singleData.download_url.endsWith(".png")) {
+                                        response.data.forEach(function (certificateData) {
+                                            result += "<a href='" + certificateData.download_url + "'";
+                                            if (certificateData.download_url.endsWith(".jpg") || certificateData.download_url.endsWith(".jpeg") || certificateData.download_url.endsWith(".png")) {
                                                 result += " data-lightbox='certificate-image'";
                                             }
                                             else {
                                                 result += " target='_blank'";
                                             }
                                             result += ">"
-                                                + removeExtension(singleData.name)
-                                                + "</a>"
-                                                + "<br>";
+                                                + removeExtension(certificateData.name)
+                                                + "</a><br>";
                                         });
-
-                                        // Codility Vanadium 2016 Golden Award
-                                        result += "<a href='https://codility.com/cert/view/cert3GMWAX-ZS299EB36JZZJY7W/' target='_blank'>"
-                                            + "Codility - Golden Award - Vanadium 2016"
-                                            + "</a>"
-                                            + "<br>";
-                                        // End Codility Vanadium 2016 Golden Award
-
-                                        // Codility Chromium 2017 Golden Award
-                                        result += "<a href='https://codility.com/cert/view/certRQV8UJ-C9UPCXF6CG73S5YK/' target='_blank'>"
-                                            + "Codility - Golden Award - Chromium 2017"
-                                            + "</a>"
-                                            + "<br>";
-                                        // End Codility Chromium 2017 Golden Award
-
-                                        document.getElementById("certificate-container").innerHTML = result;
+                                        return result;
                                     }
 
-                                    var tag = document.createElement("script");
-                                    tag.src = 'https://api.github.com/repos/hendrawd/hendrawd.github.io/contents/assets/images/certificate?callback=getCertificateCallback';
-
-                                    document.getElementsByTagName("head")[0].appendChild(tag);
+                                    retrieveCertificateData();
                                 </script>
                             </div>
                         </section>
