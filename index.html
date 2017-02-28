@@ -154,6 +154,25 @@
                         <!-- SECTION 2 - CERTIFICATE -->
                         <section class="no-display">
                             <div class="profile" id="2">
+                                <div class="page-head">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <h3>Certificate</h3>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="np-main">
+                                                <p>Go to next/previous page</p>
+                                                <div class="np-controls">
+                                                    <a href="#" class="previous"><i class="fa fa-arrow-circle-left"></i></a>
+                                                    <a href="#" class="next"><i
+                                                            class="fa fa-arrow-circle-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div id="certificate-container"></div>
                                 <script type="text/javascript">
                                     function removeExtension(input) {
                                         return input.replace(/\.[^/.]+$/, "");
@@ -194,7 +213,7 @@
                                             + "<br>";
                                         // End Codility Chromium 2017 Golden Award
 
-                                        document.getElementById("2").innerHTML = result;
+                                        document.getElementById("certificate-container").innerHTML = result;
                                     }
 
                                     var tag = document.createElement("script");
