@@ -375,7 +375,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div id="certificate-container"></div>
+                                <div id="certificate-container" class="resume-info"></div>
                                 <script type="text/javascript">
                                     /**
                                      * Remove last word after dot(.)/extension from a string
@@ -402,7 +402,7 @@
                                         var result = getCertificateHtmlCodeFromGitHubFolder(response);
                                         result += getCertificateHtmlCodeFromUrl("https://codility.com/cert/view/cert3GMWAX-ZS299EB36JZZJY7W/", "Codility - Golden Award - Vanadium 2016");
                                         result += getCertificateHtmlCodeFromUrl("https://codility.com/cert/view/certRQV8UJ-C9UPCXF6CG73S5YK/", "Codility - Golden Award - Chromium 2017");
-
+                                        result += "<br>";
                                         document.getElementById("certificate-container").innerHTML = result;
                                     }
 
