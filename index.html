@@ -155,11 +155,15 @@
                         <section class="no-display">
                             <div class="profile" id="2">
                                 <script type="text/javascript">
-                                    function removeExtension(input){
+                                    function removeExtension(input) {
                                         return input.replace(/\.[^/.]+$/, "");
                                     }
 
-                                    function jsonPCallback(response) {
+                                    /**
+                                     * JSONP callback for cross domain data getter
+                                     * @param response
+                                     */
+                                    function getCertificateCallback(response) {
                                         console.log(response);
                                         var result = "";
                                         response.data.forEach(function (singleData) {
@@ -173,11 +177,19 @@
                                                 + "<br>";
                                         });
 
+                                        // Codility vanadium golden award
+                                        result += "<a href='https://codility.com/cert/view/cert3GMWAX-ZS299EB36JZZJY7W/' ";
+                                        result += ">"
+                                            + "Codility - Golden Award - Vanadium 2016"
+                                            + "</a>"
+                                            + "<br>";
+                                        // End codility vanadium golden award
+
                                         document.getElementById("2").innerHTML = result;
                                     }
 
                                     var tag = document.createElement("script");
-                                    tag.src = 'https://api.github.com/repos/hendrawd/hendrawd.github.io/contents/assets/images/certificate?callback=jsonPCallback';
+                                    tag.src = 'https://api.github.com/repos/hendrawd/hendrawd.github.io/contents/assets/images/certificate?callback=getCertificateCallback';
 
                                     document.getElementsByTagName("head")[0].appendChild(tag);
                                 </script>
