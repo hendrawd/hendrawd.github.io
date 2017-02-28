@@ -30,7 +30,8 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Google Webfonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,800,700italic,600italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,800,700italic,600italic'
+          rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neuton:400,200,300' rel='stylesheet' type='text/css'>
 
     <!--[if lt IE 9]>
@@ -88,14 +89,17 @@
         <div class="row">
             <div class="col-md-3 l-content">
                 <div class="profile-pic">
-                    <a href="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAjMAAAAJDg0YjczMmVhLTMyNzgtNDUxMS1hOTdhLTE3YTVkNmYzZDM0YQ.jpg" data-lightbox="profile-image">
-                        <div class="pic-bg"><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAjMAAAAJDg0YjczMmVhLTMyNzgtNDUxMS1hOTdhLTE3YTVkNmYzZDM0YQ.jpg" class="img-responsive img-circle" alt=""/></div>
+                    <a href="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAjMAAAAJDg0YjczMmVhLTMyNzgtNDUxMS1hOTdhLTE3YTVkNmYzZDM0YQ.jpg"
+                       data-lightbox="profile-image">
+                        <div class="pic-bg"><img
+                                src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAjMAAAAJDg0YjczMmVhLTMyNzgtNDUxMS1hOTdhLTE3YTVkNmYzZDM0YQ.jpg"
+                                class="img-responsive img-circle" alt=""/></div>
                     </a>
                 </div>
                 <nav>
                     <ul class="navigation">
                         <li><a href="#">Profile <i class="fa fa-user"></i></a></li>
-                        <!--<li><a href="#">Work <i class="fa fa-briefcase"></i></a></li>-->
+                        <li><a href="#">Certificate <i class="fa fa-certificate"></i></a></li>
                         <li><a href="#">Resume <i class="fa fa-file-text"></i></a></li>
                         <!--<li><a href="#">Blog <i class="fa fa-comment"></i></a></li>-->
                         <li><a href="#">Contact <i class="fa fa-envelope"></i></a></li>
@@ -111,10 +115,14 @@
                             <div class="profile" id="1">
                                 <h2>Hello, I am <span>Hendra Wijaya Djiono</span><br>Android Developer</h2>
                                 <div class="sep1"></div>
-                                <p>I'm a fast learner. Like to try something new. Maybe people will see me as a generalist, but i always focus with what i do and i want.<br><br>
+                                <p>I'm a fast learner. Like to try something new. Maybe people will see me as a
+                                    generalist, but i always focus with what i do and i want.<br><br>
                                     I'm a perfectionist. I try to be perfect in all things that i do.<br><br>
-                                    I know there is nothing as a real perfect in this world, but at least i try my best. I don't need to be perfect to do great things. That concludes me that i'm a realistic person too.<br><br>
-                                    I'm an effective and hard worker. I finish my jobs faster than average workers.<br><br>
+                                    I know there is nothing as a real perfect in this world, but at least i try my best.
+                                    I don't need to be perfect to do great things. That concludes me that i'm a
+                                    realistic person too.<br><br>
+                                    I'm an effective and hard worker. I finish my jobs faster than average
+                                    workers.<br><br>
                                     I know alot about many programming languages, but i'm best at using Java.</p>
                                 <div class="personal-info col-md-12 no-padding">
                                     <h4>Personal Info</h4>
@@ -130,7 +138,8 @@
                                             <div class="p-info"><em>email</em><span>hendraz_88@yahoo.co.id</span></div>
                                         </li>
                                         <li>
-                                            <div class="p-info"><em>address</em><span>Jl. Rawa Pening V, No. 15B, Bendungan Hilir, Jakarta Pusat, Indonesia</span></div>
+                                            <div class="p-info"><em>address</em><span>Jl. Rawa Pening V, No. 15B, Bendungan Hilir, Jakarta Pusat, Indonesia</span>
+                                            </div>
                                         </li>
                                         <li>
                                             <div class="p-info"><em>phone</em><span>+62-81-326-174-180</span></div>
@@ -141,6 +150,40 @@
                             </div>
                         </section>
                         <!-- SECTION 1 - HOMEPAGE -->
+
+                        <!-- SECTION 2 - CERTIFICATE -->
+                        <section class="no-display">
+                            <div class="profile" id="2">
+                                <script type="text/javascript">
+                                    function removeExtension(input){
+                                        return input.replace(/\.[^/.]+$/, "");
+                                    }
+
+                                    function jsonPCallback(response) {
+                                        console.log(response);
+                                        var result = "";
+                                        response.data.forEach(function (singleData) {
+                                            result += "<a href='" + singleData.download_url + "' ";
+                                            if (singleData.download_url.endsWith(".jpg") || singleData.download_url.endsWith(".jpeg") || singleData.download_url.endsWith(".png")) {
+                                                result += "data-lightbox='certificate-image'";
+                                            }
+                                            result += ">"
+                                                + removeExtension(singleData.name)
+                                                + "</a>"
+                                                + "<br>";
+                                        });
+
+                                        document.getElementById("2").innerHTML = result;
+                                    }
+
+                                    var tag = document.createElement("script");
+                                    tag.src = 'https://api.github.com/repos/hendrawd/hendrawd.github.io/contents/assets/images/certificate?callback=jsonPCallback';
+
+                                    document.getElementsByTagName("head")[0].appendChild(tag);
+                                </script>
+                            </div>
+                        </section>
+                        <!-- SECTION 2 - CERTIFICATE -->
 
                         <!-- SECTION 2 - WORKS / PROJECTS / PORTFOLIO -->
                         <!--<section class="no-display">-->
@@ -347,7 +390,8 @@
                                                 <p>Go to next/previous page</p>
                                                 <div class="np-controls">
                                                     <a href="#" class="previous"><i class="fa fa-arrow-circle-left"></i></a>
-                                                    <a href="#" class="next"><i class="fa fa-arrow-circle-right"></i></a>
+                                                    <a href="#" class="next"><i
+                                                            class="fa fa-arrow-circle-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -359,15 +403,20 @@
                                     <ul>
                                         <li>
                                             <h5>Bina Nusantara University</h5>
-                                            <span class="resume-item"><i class="fa fa-calendar"></i> 2006 - 2011</span><br>
-                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a href="http://binus.ac.id" target="_blank">http://binus.ac.id</a></span><br>
+                                            <span class="resume-item"><i
+                                                    class="fa fa-calendar"></i> 2006 - 2011</span><br>
+                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a
+                                                    href="http://binus.ac.id"
+                                                    target="_blank">http://binus.ac.id</a></span><br>
                                             <span class="resume-item"><i class="fa fa-certificate"></i>&nbsp;Bachelor's Degree of Computer Science</span><br>
                                             <span class="resume-item"><i class="fa fa-book"></i>&nbsp;Information Technology - Software Engineering</span><br>
                                         </li>
                                         <li>
                                             <h5>Free Code Camp</h5>
-                                            <span class="resume-item"><i class="fa fa-calendar"></i>&nbsp;2016 - 2017</span><br>
-                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a href="https://www.freecodecamp.com/hendrawd" target="_blank">https://www.freecodecamp.com/hendrawd</a></span><br>
+                                            <span class="resume-item"><i
+                                                    class="fa fa-calendar"></i>&nbsp;2016 - 2017</span><br>
+                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a
+                                                    href="https://www.freecodecamp.com/hendrawd" target="_blank">https://www.freecodecamp.com/hendrawd</a></span><br>
                                             <span class="resume-item"><i class="fa fa-certificate"></i>&nbsp;Full Stack Web Development Certification</span><br>
                                             <span class="resume-item"><i class="fa fa-book"></i>&nbsp;Computer Software Engineering</span><br>
                                         </li>
@@ -437,12 +486,17 @@
                                             <h5>Maroon Gift & Souvenir</h5>
                                             <span class="resume-item"><i class="fa fa-user"></i> Co-Founder</span><br>
                                             <span class="resume-item"><i class="fa fa-calendar"></i> July 2009 - August 2013</span><br>
-                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a href="http://maroongift.com" target="_blank">http://maroongift.com</a></span><br>
+                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a
+                                                    href="http://maroongift.com"
+                                                    target="_blank">http://maroongift.com</a></span><br>
                                             <h6>Responsibilities:</h6>
-                                            <i class="fa fa-arrow-right"></i> Program and design www.maroongift.com, E – Commerce website based on Content Management System(CMS) <br>
-                                            <i class="fa fa-arrow-right"></i> Take care of domain registration and hosting for www.maroongift.com <br>
+                                            <i class="fa fa-arrow-right"></i> Program and design www.maroongift.com, E –
+                                            Commerce website based on Content Management System(CMS) <br>
+                                            <i class="fa fa-arrow-right"></i> Take care of domain registration and
+                                            hosting for www.maroongift.com <br>
                                             <i class="fa fa-arrow-right"></i> Install website to the hosting server <br>
-                                            <i class="fa fa-arrow-right"></i> Introduce Maroon Gift & Souvenir’s products to other websites and forums <br>
+                                            <i class="fa fa-arrow-right"></i> Introduce Maroon Gift & Souvenir’s
+                                            products to other websites and forums <br>
                                             <i class="fa fa-arrow-right"></i> Optimize SEO <br>
                                             <i class="fa fa-arrow-right"></i> Manage Facebook Fans Page <br>
                                             <i class="fa fa-arrow-right"></i> Manage www.maroongift.com <br>
@@ -451,32 +505,56 @@
                                             <h5>PT. Triyakom</h5>
                                             <span class="resume-item"><i class="fa fa-user"></i> Mobile and Website Developer</span><br>
                                             <span class="resume-item"><i class="fa fa-calendar"></i> August 2013 - June 2015</span><br>
-                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a href="http://triyakom.com" target="_blank">http://triyakom.com</a></span><br>
-                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a href="http://123xfun.com" target="_blank">http://123xfun.com</a></span><br>
+                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a
+                                                    href="http://triyakom.com"
+                                                    target="_blank">http://triyakom.com</a></span><br>
+                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a
+                                                    href="http://123xfun.com"
+                                                    target="_blank">http://123xfun.com</a></span><br>
                                             <h6>Responsibilities:</h6>
-                                            <i class="fa fa-arrow-right"></i> Develop and maintain J2ME, Blackberry, and Android applications <br>
+                                            <i class="fa fa-arrow-right"></i> Develop and maintain J2ME, Blackberry, and
+                                            Android applications <br>
                                             <i class="fa fa-arrow-right"></i> Develop Android 2D games <br>
-                                            <i class="fa fa-arrow-right"></i> Research about new application/game trend and idea <br>
-                                            <i class="fa fa-arrow-right"></i> Develop wap game using spring framework <br>
-                                            <i class="fa fa-arrow-right"></i> IT support for Creative Music Division <br>
+                                            <i class="fa fa-arrow-right"></i> Research about new application/game trend
+                                            and idea <br>
+                                            <i class="fa fa-arrow-right"></i> Develop wap game using spring framework
+                                            <br>
+                                            <i class="fa fa-arrow-right"></i> IT support for Creative Music Division
+                                            <br>
                                         </li>
                                         <li>
                                             <h5>PT. IONsoft(Indonesia)</h5>
                                             <span class="resume-item"><i class="fa fa-user"></i> Lead Software Developer(Business Development Manager)</span><br>
                                             <span class="resume-item"><i class="fa fa-calendar"></i> June 2015 - Present</span><br>
-                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a href="http://i-on.net" target="_blank">http://i-on.net</a></span><br>
+                                            <span class="resume-item"><i class="fa fa-link"></i>&nbsp;<a
+                                                    href="http://i-on.net"
+                                                    target="_blank">http://i-on.net</a></span><br>
                                             <h6>Responsibilities:</h6>
-                                            <i class="fa fa-arrow-right"></i> Develop and maintain android applications and websites<br>
-                                            <i class="fa fa-arrow-right"></i> Lead software developers of PT. IONsoft to develop IT solutions <br>
+                                            <i class="fa fa-arrow-right"></i> Develop and maintain android applications
+                                            and websites<br>
+                                            <i class="fa fa-arrow-right"></i> Lead software developers of PT. IONsoft to
+                                            develop IT solutions <br>
                                             <h6>Applications:</h6>
-                                            <i class="fa fa-arrow-right"></i> <a href="https://play.google.com/store/apps/details?id=com.loebanget.app" target="_blank">Loebanget</a> <br>
-                                            <i class="fa fa-arrow-right"></i> <a href="https://play.google.com/store/apps/details?id=com.ionsoft.fotato" target="_blank">Fotato</a> <br>
-                                            <i class="fa fa-arrow-right"></i> <a href="https://play.google.com/store/apps/details?id=ion.rnd.android.indonesia" target="_blank">Pulsaku</a> <br>
-                                            <i class="fa fa-arrow-right"></i> <a href="https://play.google.com/store/apps/details?id=id.co.ionsoft.pagimobile" target="_blank">Pagi</a> <br>
-                                            <i class="fa fa-arrow-right"></i> <a href="https://play.google.com/store/apps/details?id=id.co.ionsoft.dialogue" target="_blank">DIA.LO.GUE</a> <br>
+                                            <i class="fa fa-arrow-right"></i> <a
+                                                href="https://play.google.com/store/apps/details?id=com.loebanget.app"
+                                                target="_blank">Loebanget</a> <br>
+                                            <i class="fa fa-arrow-right"></i> <a
+                                                href="https://play.google.com/store/apps/details?id=com.ionsoft.fotato"
+                                                target="_blank">Fotato</a> <br>
+                                            <i class="fa fa-arrow-right"></i> <a
+                                                href="https://play.google.com/store/apps/details?id=ion.rnd.android.indonesia"
+                                                target="_blank">Pulsaku</a> <br>
+                                            <i class="fa fa-arrow-right"></i> <a
+                                                href="https://play.google.com/store/apps/details?id=id.co.ionsoft.pagimobile"
+                                                target="_blank">Pagi</a> <br>
+                                            <i class="fa fa-arrow-right"></i> <a
+                                                href="https://play.google.com/store/apps/details?id=id.co.ionsoft.dialogue"
+                                                target="_blank">DIA.LO.GUE</a> <br>
                                             <h6>Websites:</h6>
-                                            <i class="fa fa-arrow-right"></i> <a href="http://loebanget.com" target="_blank">Loebanget</a> <br>
-                                            <i class="fa fa-arrow-right"></i> <a href="http://fotato.net" target="_blank">Fotato</a> <br>
+                                            <i class="fa fa-arrow-right"></i> <a href="http://loebanget.com"
+                                                                                 target="_blank">Loebanget</a> <br>
+                                            <i class="fa fa-arrow-right"></i> <a href="http://fotato.net"
+                                                                                 target="_blank">Fotato</a> <br>
                                         </li>
                                     </ul>
                                 </div>
@@ -587,7 +665,8 @@
                                                 <p>Go to next/previous page</p>
                                                 <div class="np-controls">
                                                     <a href="#" class="previous"><i class="fa fa-arrow-circle-left"></i></a>
-                                                    <a href="#" class="next"><i class="fa fa-arrow-circle-right"></i></a>
+                                                    <a href="#" class="next"><i
+                                                            class="fa fa-arrow-circle-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -600,9 +679,12 @@
                                 </div>
                                 <div class="contact-info">
                                     <h4>Contact info</h4>
-                                    <p>You can contact me directly through the contact information or through the form below</p>
+                                    <p>You can contact me directly through the contact information or through the form
+                                        below</p>
                                     <ul>
-                                        <li><i class="fa fa-home"></i> Jl. Rawa Pening V, No. 15B, Bendungan Hilir, Jakarta Pusat, Indonesia</li>
+                                        <li><i class="fa fa-home"></i> Jl. Rawa Pening V, No. 15B, Bendungan Hilir,
+                                            Jakarta Pusat, Indonesia
+                                        </li>
                                         <li><i class="fa fa-phone"></i> +62-81-326-174-180</li>
                                         <li><i class="fa fa-envelope"></i> hendraz_88@yahoo.co.id</li>
                                     </ul>
@@ -617,7 +699,8 @@
                                                 <input type="text" name="_subject" placeholder="Subject">
                                             </div>
                                             <div class="col-md-8">
-                                                <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                                                <textarea name="message" id="message" rows="6"
+                                                          placeholder="Message"></textarea>
                                                 <button type="submit">Send Message</button>
                                             </div>
                                         </div>
@@ -637,10 +720,14 @@
                         </div>
                         <div class="col-md-5">
                             <ul class="social">
-                                <li><a target="_blank" href="https://github.com/hendrawd/"><i class="fa fa-github"></i></a></li>
-                                <li><a target="_blank" href="http://stackoverflow.com/users/3940133/hendrawd"><i class="fa fa-stack-overflow"></i></a></li>
-                                <li><a target="_blank" href="https://www.linkedin.com/in/hendra-wijaya-djiono-234a17b6"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a target="_blank" href="https://www.facebook.com/deadpeoplewalking"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://github.com/hendrawd/"><i class="fa fa-github"></i></a>
+                                </li>
+                                <li><a target="_blank" href="http://stackoverflow.com/users/3940133/hendrawd"><i
+                                        class="fa fa-stack-overflow"></i></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/hendra-wijaya-djiono-234a17b6"><i
+                                        class="fa fa-linkedin"></i></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/deadpeoplewalking"><i
+                                        class="fa fa-facebook"></i></a></li>
                                 <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
                                 <!--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
                                 <!--<li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
