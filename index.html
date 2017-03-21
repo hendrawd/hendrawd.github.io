@@ -413,12 +413,17 @@
                                     function getCertificateHtmlCodeFromGitHubFolder(response) {
                                         var result = "";
                                         response.data.forEach(function (certificateData) {
-                                            result += "<a href='" + certificateData.download_url + "'";
-                                            if (certificateData.download_url.endsWith(".jpg") || certificateData.download_url.endsWith(".jpeg") || certificateData.download_url.endsWith(".png")) {
-                                                result += " data-lightbox='certificate-image'";
+                                            var dowloadUrl = certificateData.download_url;
+                                            if (dowloadUrl.toLowerCase().endsWith(".jpg") || dowloadUrl.toLowerCase().endsWith(".jpeg") || dowloadUrl.toLowerCase().endsWith(".png")) {
+                                                //images using lightbox
+                                                result += "<a href='" + certificateData.download_url + "' data-lightbox='certificate-image'";
+                                            }
+                                            else if (dowloadUrl.toLowerCase().endsWith(".pdf")) {
+                                                //pdf using google docs viewer
+                                                result += "<a href='" + "https://docs.google.com/viewerng/viewer?url=" + certificateData.download_url + "' target='_blank'";
                                             }
                                             else {
-                                                result += " target='_blank'";
+                                                result += "<a href='" + certificateData.download_url + "' target='_blank'";
                                             }
                                             result += ">"
                                                 + removeExtension(certificateData.name)
