@@ -1,6 +1,7 @@
 {
   "plugins": [
     "json",
-    "markdown"
+    "markdown",
+    "html"
   ]
 }
