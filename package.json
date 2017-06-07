@@ -1,0 +1,23 @@
+{
+  "name": "hendrawd.github.io",
+  "version": "1.0.0",
+  "description": "Profile Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hendrawd/hendrawd.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hendrawd/hendrawd.github.io/issues"
+  },
+  "homepage": "https://github.com/hendrawd/hendrawd.github.io#readme",
+  "devDependencies": {
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-markdown": "^1.0.0-beta.6"
+  }
+}
